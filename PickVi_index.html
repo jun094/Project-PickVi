@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>index</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 120vh;
+    }
+
+    .section {
+      background-image: url("img/main.jpg");
+      background-size: cover;
+    }
+
+    .section-opacity {
+      background-color: rgba(25, 25, 25, 0.3);
+      z-index: 0;
+      height: 120vh;
+
+      width: 100%;
+      text-align: center;
+
+    }
+
+    /* box-CSS */
+    #box1 {
+      z-index: 1;
+      margin-top: 100px;
+      display: inline-block;
+    }
+
+    #box2 {
+      z-index: 1;
+      margin-top: 250px;
+      display: none;
+    }
+
+    .article1 {
+      display: block;
+      background-color: rgb(255, 255, 255);
+      text-align: center;
+      border: 2px solid #EFEFEF;
+      width: 350px;
+
+      margin: 10px 0px 10px;
+      padding: 10px 0px;
+    }
+
+    #logo {
+      text-align: center;
+      font-size: 20px;
+      width: 175px;
+      height: 51px;
+      margin: 22px 86px 12px;
+      font-size: 14px;
+    }
+
+    #logo img {
+      cursor: pointer;
+      height: 51px;
+    }
+
+    #ment1 h2 {
+      text-align: center;
+      width: 268px;
+      height: 40px;
+      margin: 0px 40px 10px;
+
+      font-size: 17px;
+      color: #999999;
+    }
+
+    #or {
+      width: 268px;
+      height: 14px;
+      margin: 10px 40px 18px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr;
+    }
+
+    #or p {
+      display: inline;
+      color: #999999;
+      font-size: 13px;
+      margin: 0px 18px;
+    }
+
+    #hr {
+      border-top: 1px solid #EFEFEF;
+      margin-top: 7px;
+    }
+
+    #input-css {
+      margin-bottom: 10px;
+    }
+
+    #input-css input {
+      width: 268px;
+      height: 38px;
+      border-radius: 5px;
+      border: 1px solid #EFEFEF;
+      background-color: #FAFAFA;
+      color: gray;
+      font-size: 11px;
+    }
+
+    #login-button input {
+      cursor: pointer;
+      margin: 10px;
+      width: 268px;
+      height: 31px;
+      background-color: #3897F0;
+      padding: 5px 9px;
+      border-radius: 5px;
+      border: 0px;
+      font-size: 14px;
+      color: white;
+    }
+
+
+    .article2 {
+      display: block;
+      background-color: rgb(255, 255, 255);
+      text-align: center;
+      border: 1px solid #EFEFEF;
+      width: 350px;
+      height: 50px;
+      margin: 0px 0px 10px;
+      padding: 10px 0px;
+    }
+
+    .article2 p {
+      font-size: 14px;
+    }
+
+    .article2 button {
+      cursor: pointer;
+      color: blue;
+      background-color: white;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="section">
+    <div class="section-opacity">
+      <!-- 아이디 없을때 -->
+      <div id="box1">
+        <div class="article1">
+          <div id="logo">
+            <a href="PickVi_index.html"><img src="img/logo.png" /></a>
+          </div>
+
+          <div id="ment1">
+            <h2>당신의 취향에 맞는 영화를 <br />추천 받아보세요.</h2>
+          </div>
+
+
+          <div id="or">
+            <span id="hr"></span>
+            <p> 또는 </p>
+            <span id="hr"></span>
+          </div>
+
+          <form id="form_join" method="POST">
+            <div id="input-css">
+              <input id="name" onchange="verify(this)" name="name" type="text" placeholder="  사용자 이름" /><br>
+            </div>
+            <div id="input-css">
+              <input id="age" onchange="verify(this)" name="age" type="text" placeholder="  사용자 나이" /><br>
+            </div>
+            <div id="input-css">
+              <input id="userid" onchange="verify(this)" name="id" type="text" placeholder="  아이디" /><br>
+            </div>
+            <div id="input-css">
+              <input id="pw" onchange="verify(this)" name="pw" type="password" placeholder="  비밀번호" /><br>
+            </div>
+
+            <div id="login-button">
+              <input type="button" onclick="join()" value="가입" />
+            </div>
+          </form>
+
+        </div>
+
+
+        <div class="article2">
+          <p>
+            계정이 있으신가요?
+            <button onclick="login_modal()">로그인</button>
+          </p>
+        </div>
+      </div>
+
+      <!-- 아이디 있을 떄 -->
+      <div id="box2">
+        <div class="article1">
+          <div id="logo">
+            <a href="PickVi_index.html"><img src="img/logo.png" /></a>
+          </div>
+
+          <div id="ment1">
+            <h2>당신의 취향에 맞는 영화를 <br />추천 받아보세요.</h2>
+          </div>
+
+
+          <div id="or">
+            <span id="hr"></span>
+            <p> 또는 </p>
+            <span id="hr"></span>
+          </div>
+
+          <form id="form_login"  method="POST" >
+            <div id="input-css">
+              <input id="userid2" name="id2" type="text" placeholder="  아이디" /><br>
+            </div>
+            <div id="input-css">
+              <input id="pw2" name="pw2" type="password" placeholder="  비밀번호" /><br>
+            </div>
+            <div id="login-button">
+              <input type="button" onclick="login()" value="로그인" />
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+<script>
+  var nameValId = document.getElementById("name");
+  var ageValId = document.getElementById("age");
+  var useridValId = document.getElementById("userid");
+  var pwValId = document.getElementById("pw");
+
+  var useridValId2 = document.getElementById("userid2");
+  var pwValId2 = document.getElementById("pw2");
+
+  function verify(n) {
+    var regAge = /^([0-9]|[1-9][0-9])$/;
+    var regName = /^[가-힣a-zA-Z\s]+$/; // 한글,영어 + 공백
+    var regUserid = /^[가-힣a-zA-Z0-9\s]/; // 한글,영어,숫자
+    var regPw = /^[가-힣a-zA-Z0-9\s]/; // 한글,영어,숫자
+
+    if (n.id == 'age') {
+      // 나이 검증
+      if (ageValId.value.match(regAge) != null) {
+        ageValId.style.borderColor = 'green';
+        ageValId.style.color = 'black';
+      } else if (ageValId.value.match(regAge) == null) {
+        ageValId.style.borderColor = 'red';
+        alert("  나이 양식을 지켜주세요 (0-99 숫자만 가능)");
+      }
+    } else if (n.id == 'name') {
+      //성명 검증
+      if (nameValId.value.match(regName) != null) {
+        nameValId.style.borderColor = 'green';
+        nameValId.style.color = 'black';
+      } else if (nameValId.value.match(regName) == null) {
+        nameValId.style.borderColor = 'red';
+        alert("  성명 양식을 지켜주세요 (한글, 영어, 공백 가능)");
+      }
+    } else if (n.id == 'userid') {
+      //사용자 아이디 검증
+      if (useridValId.value.match(regUserid) != null) {
+        useridValId.style.borderColor = 'green';
+        useridValId.style.color = 'black';
+      } else if (useridValId.value.match(regUserid) == null) {
+        useridValId.style.borderColor = 'red';
+        alert("  아이디 양식을 지켜주세요 (한글, 영어, 숫자 가능)");
+      }
+    } else if (n.id == 'pw') {
+      //비밀번호 검증
+      if (pwValId.value.match(regPw) != null) {
+        pwValId.style.borderColor = 'green';
+        pwValId.style.color = 'black';
+      } else if (pwValId.value.match(regPw) == null) {
+        pwValId.style.borderColor = 'red';
+        alert("  비밀번호 양식을 지켜주세요 (한글, 영어, 숫자 가능)");
+      }
+    }
+  }
+
+  function join() {
+    //console.log(emailValId.style.borderColor);
+    if (ageValId.style.borderColor == 'green' &&
+      nameValId.style.borderColor == 'green' &&
+      useridValId.style.borderColor == 'green' &&
+      pwValId.style.borderColor == 'green') {
+      alert('성명 : ' + nameValId.value + '\n나이 : ' + ageValId.value + '\n사용자 이름 : ' + useridValId.value);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "php/PickVi_check.php", true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onload = function() {
+        var result = JSON.parse(xhr.responseText); // reponseText : PHP응답한 결과 값
+        if (xhr.readyState == 4 && xhr.status == 200) { // 응답에 성공하면
+          if (xhr.responseText == "0") //중복아이디 조건 검색
+          {
+            document.getElementById("form_join").action ="PickVi_Taste.php";
+            document.getElementById("form_join").submit();
+          } else
+            alert("중복된 아이디가 있습니다.");
+        } else { //응답에 실패하면
+          console.error("error.");
+        }
+      }
+      xhr.send("id=" + useridValId.value);
+    } else {
+      alert('모든 양식을 제대로 채워주세요 !');
+    }
+  };
+
+  function login() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "php/PickVi_check2.php", true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+      var result = JSON.parse(xhr.responseText); // reponseText : PHP응답한 결과 값
+      if(xhr.readyState == 4 && xhr.status == 200) { // 응답에 성공하면
+        if(xhr.responseText == '1') // pw 일치할 떄
+        {
+          document.getElementById("form_login").action ="PickVi_Taste.php";
+          document.getElementById("form_login").submit();
+        }
+        else if(xhr.responseText == '0')// pw 일치하지 않을때
+        {
+          alert("비밀번호 오류 !");
+        }
+        else if(xhr.responseText == '2')
+        {
+          document.getElementById("form_login").action ="PickVi_manager.php";
+          document.getElementById("form_login").submit();
+        }
+      }
+      else { //응답에 실패하면
+        console.error("error.");
+      }
+    }
+    xhr.send("pw=" + pwValId2.value +"&"+ "id=" + useridValId2.value);
+  }
+
+  function login_modal() {
+    var boxClass1 = document.getElementById("box1");
+    var boxClass2 = document.getElementById("box2");
+    boxClass1.style.display = "none";
+    boxClass2.style.display = "inline-block";
+  }
+</script>
+
+</html>
